@@ -1,0 +1,153 @@
+* {
+    margin: auto;
+    overflow: hidden;
+    background-color: #35414B;
+    height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    * {
+        font-size: 12px;
+    }
+}
+
+.wallpaper {
+    position: absolute;
+    height: 100%;
+    z-index: 2;
+    width:100%;
+    opacity: 0.1;
+    
+}
+
+.chatContainer {
+    position: relative;
+    top:2%;
+    flex: 1;
+    width: 100%;
+    height: 90%;
+    overflow-y: scroll; 
+  
+    /* display: flex; */
+    flex-direction: column;
+    gap: 10px;
+  
+    -ms-overflow-style:none;
+    scrollbar-width: none;
+  
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+    z-index: 1;
+
+}
+
+/* hides scrollbar */
+.chatContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.chat {
+    width: 100%;
+    max-height: 50px;
+    max-width: 1280px;
+    margin: 0 auto;
+  
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.chat .name {
+    color: #dcdcdc;
+    font-size: 1rem;
+    margin-left: 0.2rem;
+    color:pink;
+}
+
+.chat .message{
+    flex: 1;
+  
+    color: #dcdcdc;
+    font-size: 1rem;
+  
+    max-width: 100%;
+    overflow-x: none;
+    font-size: 20;
+}
+
+.test {
+    position: absolute;
+    top: 1%;
+    left:3%;
+    color: white;
+    z-index: 3;
+    font-size: 1.2rem;
+}
+
+.chatContainer .time {
+    margin-left: 1rem;
+}
+
+.pushmsg {
+    position: absolute;
+    display: inline-flex;
+    bottom: 0;
+    width: 100%;
+    height:70px;
+    background-color: #677076;
+    z-index: 3;
+}
+
+input {
+    height:40px;
+    width:70%;
+    border-width: 1;
+    margin-left: 10px;
+    background-color: #23292E;
+    color:white;
+    font-size: large;
+}
+
+button {
+    font-size: 1rem;
+}
+
+#btn1 {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    height:40px;
+    width:15%;
+    margin-left: 3px;
+    border-width: 0.1;
+    color:white;
+    background-color: #23292E;
+    cursor: pointer;
+    line-height: 35px;
+}
+
+#btn2 {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    height:40px;
+    width:15%;
+    margin-left: 3px;
+    border-width: 0.1;
+    color:white;
+    background-color: #23292E;
+    cursor: pointer;
+    line-height: 35px;
+    margin-right: 5px;
+}
+
+#notiBtn {
+    position: absolute;
+    top: 0;
+    justify-content: center;
+    width:2rem;
+    height:1rem;
+    background-color: white;
+    z-index: 30;
+}
