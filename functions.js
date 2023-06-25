@@ -2,7 +2,8 @@ let ipt1 = document.getElementById("ipt1")
 let btn1 = document.getElementById("btn1")
 let btn2 = document.getElementById("btn2")
 
-const APILINK = "http://127.0.0.1:8000/api/v1/rtchat/";
+// const APILINK = "http://127.0.0.1:8000/api/v1/rtchat/";
+const APILINK = "http://localhost:8000/api/v1/rtchat/"
 
 function SaveUsername() {
     console.log('saving username...', ipt1.value)
