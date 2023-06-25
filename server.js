@@ -1,13 +1,13 @@
 import express from "express"
 import cors from "cors"
-import rchat from "./api/reviews.route.js"
+import rtchat from "./api/reviews.route.js"
 
 const app = express()
 
 app.use(cors())
 app.use(express.json()) //able to send and receive json
 
-app.use("/api/v1/rchat", rchat)
+app.use("/api/v1/rtchat", rtchat)
 app.use("*", (req, res) => res.status(404).json({error: "not found"}))
 
 export default app

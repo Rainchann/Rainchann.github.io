@@ -1,15 +1,16 @@
 import mongodb from "mongodb"
 const ObjectId = mongodb.ObjectId
 
-let _user_
+let rt_chatting
 
-export default class _user_DAO {
+export default class reviewsDAO {
   static async injectDB(conn) {
-    if (_user_) {
+    if (rt_chatting) {
       return
     }
     try {
-      _user_ = await conn.db("_user_").collection("_user_")
+      rt_chatting = await conn.db("rt_chatting").collection("info")
+      console.log("connecting to database...")
     } catch (e) {
       console.error(`Unable to establish collection handles in userDAO: ${e}`)
     }
@@ -21,7 +22,7 @@ export default class _user_DAO {
         username: username
       }
       console.log("adding")
-      return await _user_.insertOne(reviewDoc)
+      return await rt_chatting.insertOne(reviewDoc)
     } catch (e) {
       console.error(`Unable to post review: ${e}`)
       return { error: e }
@@ -30,7 +31,7 @@ export default class _user_DAO {
 
   static async getReview(reviewId) {
     try {
-      return await _user_.findOne({ _id: ObjectId(reviewId) })
+      return await rt_chatting.findOne({ _id: ObjectId(reviewId) })
     } catch (e) {
       console.error(`Unable to get review: ${e}`)
       return { error: e }
@@ -39,7 +40,7 @@ export default class _user_DAO {
 
   static async updateReview(reviewId, user, review) {
     try {
-      const updateResponse = await _user_.updateOne(
+      const updateResponse = await rt_chatting.updateOne(
         { _id: ObjectId(reviewId) },
         { $set: { user: user, review: review } }
       )
@@ -54,7 +55,7 @@ export default class _user_DAO {
   static async deleteReview(reviewId) {
 
     try {
-      const deleteResponse = await _user_.deleteOne({
+      const deleteResponse = await rt_chatting.deleteOne({
         _id: ObjectId(reviewId),
       })
 
@@ -65,9 +66,9 @@ export default class _user_DAO {
     }
   }
 
-  static async get_user_ByMovieId(movieId) {
+  static async getrt_chattingByMovieId(movieId) {
     try {
-      const cursor = await _user_.find({ movieId: parseInt(movieId) })
+      const cursor = await rt_chatting.find({ movieId: parseInt(movieId) })
       return cursor.toArray()
     } catch (e) {
       console.error(`Unable to get review: ${e}`)

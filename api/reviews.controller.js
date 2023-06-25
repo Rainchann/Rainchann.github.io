@@ -3,11 +3,9 @@ import ReviewsDAO from "../dao/reviewsDAO.js"
 export default class ReviewsController {
   static async apiPostReview(req, res, next) {
     try {
-      const username = parseInt(req.body.username)
+      const username = req.body.username
       console.log('username', username)
-      const reviewResponse = await ReviewsDAO.addReview(
-        username
-      )
+      const reviewResponse = await ReviewsDAO.addReview(username)
       res.json({ status: "success" })
     } catch (e) {
       res.status(500).json({ error: e.message })
@@ -71,7 +69,7 @@ export default class ReviewsController {
   static async apiGetReviews(req, res, next) {
     try {
       let id = req.params.id || {}
-      let reviews = await ReviewsDAO.getReviewsByMovieId(id)
+      let reviews = await ReviewsDAO.get_rt_chatting_ByMovieId(id)
       if (!reviews) {
         res.status(404).json({ error: "Not found" })
         return
