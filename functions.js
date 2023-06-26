@@ -84,9 +84,10 @@ function formatMsg(uniqueId, username, msg, time) {
   })
   // main ? '' : sendNoti(); 
 
-  chatContainer.scrollTop = chatContainer.scrollHeight;
-  chatContainer.innerHTML += formatMsg(uniqueId, username, message, currentTime)
+  // chatContainer.scrollTop = chatContainer.scrollHeight;
+  // chatContainer.innerHTML += formatMsg(uniqueId, username, message, currentTime)
   ipt1.value = '';
+
   }
   
   function getDate() {
@@ -117,6 +118,5 @@ function formatMsg(uniqueId, username, msg, time) {
     let min = String(datetime.getMinutes()).padStart(2, '0');
     return hour+":"+min;
   }
-
 
   GetMessages();
