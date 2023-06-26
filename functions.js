@@ -12,7 +12,7 @@ function SaveUsername() {
 }
 
 function GetMessages() {
-  fetch(APILINK+"getmsg",
+  fetch(APILINK+"getHistory",
   )
   .then(res => res.json())
     .then(function(data){
@@ -20,6 +20,15 @@ function GetMessages() {
       // console.log(element);
       returnMsg(element.uniqueId, element.username, element.message, element.sentTime);
     });
+  });
+}
+
+async function GetSentMsg(uniqueId) {
+  fetch(APILINK+"getSentMsg/"+uniqueId)
+  .then(res => res.json())
+    .then(function(data){
+      // console.log(element);
+      returnMsg(data.uniqueId, data.username, data.message, data.sentTime);
   });
 }
 
@@ -83,9 +92,9 @@ function formatMsg(uniqueId, username, msg, time) {
       // location.reload();
   })
   // main ? '' : sendNoti(); 
-
-  // chatContainer.scrollTop = chatContainer.scrollHeight;
-  // chatContainer.innerHTML += formatMsg(uniqueId, username, message, currentTime)
+  //GetSentMsg(uniqueId);
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+  chatContainer.innerHTML += formatMsg(uniqueId, username, message, currentTime)
   ipt1.value = '';
 
   }
