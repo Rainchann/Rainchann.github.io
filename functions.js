@@ -80,7 +80,7 @@ function formatMsg(uniqueId, username, msg, time) {
       body: JSON.stringify({"uniqueId": uniqueId, "username": username, "message": message, "sentTime": currentTime})
   }).then(res => {
       if (res.status == 200) {
-        // console.log(res)
+        console.log(res)
         return res.json();}
       else{
           console.log('no response')
@@ -88,7 +88,7 @@ function formatMsg(uniqueId, username, msg, time) {
       };
   })
       .then(res => {
-      // console.log(res);
+      console.log(res);
       // location.reload();
   })
   // main ? '' : sendNoti(); 
